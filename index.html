@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rampurya Ji Flour Mills | Premium Quality & Purity</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for Dynamic Themes & Glossy Glassmorphism */
+        :root[data-theme="dark"] {
+            --primary-gold: #c5a059;
+            --dark-gold: #9e7d3b;
+            --bg-color: #0b0f17;
+            --card-bg: rgba(255, 255, 255, 0.05); /* Glass Background */
+            --card-border: rgba(197, 160, 89, 0.25);
+            --nav-bg: rgba(11, 15, 23, 0.85);
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --hero-overlay: rgba(11, 15, 23, 0.85);
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --glossy-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 15px rgba(255, 255, 255, 0.05);
+            --glossy-hover: 0 12px 40px 0 rgba(197, 160, 89, 0.25), inset 0 0 20px rgba(197, 160, 89, 0.15);
+        }
+
+        :root[data-theme="light"] {
+            --primary-gold: #8b6217;
+            --dark-gold: #c5a059;
+            --bg-color: #f1f5f9;
+            --card-bg: rgba(255, 255, 255, 0.65); /* Light Glass */
+            --card-border: rgba(139, 98, 23, 0.2);
+            --nav-bg: rgba(241, 245, 249, 0.85);
+            --text-light: #0f172a;
+            --text-muted: #475569;
+            --hero-overlay: rgba(241, 245, 249, 0.88);
+            --input-bg: rgba(255, 255, 255, 0.8);
+            --glossy-glow: 0 8px 32px 0 rgba(31, 38, 135, 0.07), inset 0 0 15px rgba(255, 255, 255, 0.6);
+            --glossy-hover: 0 12px 40px 0 rgba(139, 98, 23, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .site-logo {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--card-border);
+            color: var(--primary-gold);
+            padding: 0.5rem 0.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* Hero Section with Custom Cover Photo */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem 2rem;
+            background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), 
+                        url('cover1.png') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--primary-gold);
+            border-radius: 50px;
+            color: var(--primary-gold);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            color: var(--text-light);
+        }
+
+        .owner-sub {
+            font-size: 1.1rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Minimalist Icon-Only Buttons */
+        .cta-group {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .icon-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--text-light);
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: #ffffff;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 20px var(--primary-gold);
+        }
+
+        .icon-btn.call:hover { background: #c5a059; }
+        .icon-btn.whatsapp:hover { background: #25D366; border-color: #25D366; box-shadow: 0 0 20px #25D366; }
+        .icon-btn.gmail:hover { background: #EA4335; border-color: #EA4335; box-shadow: 0 0 20px #EA4335; }
+        .icon-btn.maps:hover { background: #4285F4; border-color: #4285F4; box-shadow: 0 0 20px #4285F4; }
+        .icon-btn.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #dc2743; box-shadow: 0 0 20px #dc2743; }
+
+        .icon-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -35px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-light);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .icon-btn:hover::after {
+            opacity: 1;
+            transform: translateY(3px);
+        }
+
+        /* Floating WhatsApp Icon */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            z-index: 10000;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Glossy Glassmorphic Cards */
+        .section {
+            padding: 6rem 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card, .pricing-card, .owner-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--glossy-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before, .pricing-card::before, .owner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: skewX(-25deg);
+            transition: left 0.75s ease;
+        }
+
+        .card:hover::before, .pricing-card:hover::before, .owner-card:hover::before {
+            left: 150%;
+        }
+
+        .card:hover, .pricing-card:hover, .owner-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-gold);
+            box-shadow: var(--glossy-hover);
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3, .pricing-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .pricing-card {
+            text-align: center;
+        }
+
+        .price-badge {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin: 1rem 0;
+        }
+
+        .price-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .price-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .price-list li strong {
+            color: var(--primary-gold);
+        }
+
+        .owner-card {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .owner-card i {
+            font-size: 3.2rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .owner-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .owner-card span {
+            color: var(--primary-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--glossy-glow);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
+            background: var(--input-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.35);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #c5a059, #9e7d3b);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .developer-credit {
+            margin-top: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+            letter-spacing: 0.5px;
+        }
+
+        .social-links {
+            margin-top: 1.2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--primary-gold);
+            font-size: 1.6rem;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px) scale(1.2);
+            color: #25D366;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem 5%; }
+            .logo { font-size: 1rem; }
+            .site-logo { height: 35px; }
+            .menu-toggle { display: block; }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--card-border);
+                display: none;
+                padding: 1.5rem 0;
+            }
+
+            nav.active { display: block; }
+            nav ul { flex-direction: column; align-items: center; gap: 1.5rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .contact-container { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation with Custom Logo -->
+    <header>
+        <a href="#home" class="brand-container">
+            <img src="logo1.png" alt="Rampurya Ji Logo" class="site-logo">
+            <span class="logo">Rampurya Ji Flour Mills</span>
+        </a>
+        
+        <div class="nav-right">
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#pricing">Rates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon" id="theme-icon"></i>
+            </button>
+
+            <div class="menu-toggle" id="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="badge">Pure & Premium Standard</span>
+            <h1>Rampurya Ji Flour Mills</h1>
+            <div class="owner-sub">Founder & Owner: Mr. Ramesh Chandra Rampurya</div>
+            <p>हम आधुनिक तकनीक, सोलर-पावर और शुद्धता के अटूट विश्वास के साथ उच्च गुणवत्ता वाले आटे और मसालों का निर्माण करते हैं।</p>
+            
+            <!-- Minimalist Icon-Only Action Buttons with Tooltips -->
+            <div class="cta-group">
+                <a href="tel:+919140406019" class="icon-btn call" data-tooltip="Call Us">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                
+                <a href="https://wa.me/919140406019?text=Hello%20Rampurya%20Ji%20Flour%20Mills" target="_blank" class="icon-btn whatsapp" data-tooltip="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="mailto:rrampurya@gmail.com" class="icon-btn gmail" data-tooltip="Email Us">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+                <a href="https://maps.app.goo.gl/Kkto6grBoGieEhzB7" target="_blank" class="icon-btn maps" data-tooltip="Location">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+
+                <a href="https://www.instagram.com/i_am_rahul_rampurya_?igsh=MXQ5empidmpyeTlzcQ==" target="_blank" class="icon-btn instagram" data-tooltip="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919140406019?text=Hello%20Rampurya%20Ji%20Flour%20Mills" class="floating-whatsapp" target="_blank" aria-label="WhatsApp Us">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Owner & About Section -->
+    <section class="section" id="about">
+        <div class="owner-card">
+            <i class="fa-solid fa-user-tie"></i>
+            <span>Proprietor & Visionary</span>
+            <h3>Mr. Ramesh Chandra Rampurya</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                शुद्धता, ईमानदारी और वर्षों के अनुभव के मार्गदर्शन में संचालित रामपुरिया जी फ़्लौर मिल्स क्षेत्र में विश्वसनीय सेवाओं का प्रतीक है।
+            </p>
+        </div>
+
+        <div class="section-title">
+            <h2>Our Excellence & Technology</h2>
+            <p style="color: var(--text-muted);">गुणवत्ता, आधुनिक पावर बैकअप और विश्वसनीयता</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-wheat-awn card-icon"></i>
+                <h3>100% Pure Flour</h3>
+                <p>उत्कृष्ट गुणवत्ता वाले गेहूं से तैयार, पोषण से भरपूर और बिना किसी मिलावट के शुद्ध आटा।</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-solar-panel card-icon"></i>
+                <h3>Dual Power Operation</h3>
+                <p>हमारी मिल <strong>सौर ऊर्जा (Solar Power)</strong> और <strong>बिजली (Grid Electricity)</strong> दोनों से संचालित होती है, जिससे निर्बाध और निरंतर सेवा सुनिश्चित होती है।</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-pepper-hot card-icon"></i>
+                <h3>Fresh Spices</h3>
+                <p>शुद्धता और प्राकृतिक स्वाद से भरपूर ताज़ा पिसे हुए मसाले।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="section-title">
+            <h2>Milling Charges (पिसाई की दरें)</h2>
+            <p style="color: var(--text-muted);">कम लागत में बेहतरीन एवं शुद्ध पिसाई</p>
+        </div>
+
+        <div class="grid">
+            <!-- Solar Pricing Card -->
+            <div class="pricing-card">
+                <i class="fa-solid fa-sun card-icon"></i>
+                <h3>Solar Power Milling</h3>
+                <p style="color: var(--text-muted);">सौर ऊर्जा संचालित (दिन के समय)</p>
+                <div class="price-badge">₹1 <span style="font-size:1rem;">/ kg</span></div>
+                <ul class="price-list">
+                    <li><span>1 Kg पिसाई शुल्क:</span> <strong>₹1.00</strong></li>
+                    <li><span>5 Kg पिसाई शुल्क:</span> <strong>₹5.00</strong></li>
+                    <li><span>10 Kg पिसाई शुल्क:</span> <strong>₹10.00</strong></li>
+                </ul>
+            </div>
+
+            <!-- Electricity Pricing Card -->
+            <div class="pricing-card">
+                <i class="fa-solid fa-bolt card-icon"></i>
+                <h3>Electricity Milling</h3>
+                <p style="color: var(--text-muted);">बिजली संचालित (ग्रिड पावर)</p>
+                <div class="price-badge">₹1.20 <span style="font-size:1rem;">/ kg</span></div>
+                <ul class="price-list">
+                    <li><span>1 Kg पिसाई शुल्क:</span> <strong>₹1.20</strong></li>
+                    <li><span>5 Kg पिसाई शुल्क:</span> <strong>₹6.00</strong></li>
+                    <li><span>10 Kg पिसाई शुल्क:</span> <strong>₹12.00</strong></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Operating Hours Section -->
+    <section class="section" id="contact">
+        <div class="section-title">
+            <h2>Contact & Timing</h2>
+            <p style="color: var(--text-muted);">हमसे जुड़ें या हमारी मिल पर पधारें</p>
+        </div>
+
+        <div class="contact-container">
+            <!-- Contact Details & Timings -->
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-item">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <div>
+                        <strong>Business Owner</strong>
+                        <p>Mr. Ramesh Chandra Rampurya</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <strong>Working Hours</strong>
+                        <p>8:00 AM – 5:00 PM (Open 7 Days a Week)</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <strong>Phone / WhatsApp</strong>
+                        <p><a href="https://wa.me/919140406019?text=Hello%20Rampurya%20Ji%20Flour%20Mills" target="_blank" style="color: var(--primary-gold); text-decoration: none;">+91 9140406019</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <strong>Email Address</strong>
+                        <p><a href="mailto:rrampurya@gmail.com" style="color: var(--primary-gold); text-decoration: none;">rrampurya@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <strong>Address</strong>
+                        <p><a href="https://maps.app.goo.gl/Kkto6grBoGieEhzB7" target="_blank" style="color: var(--primary-gold); text-decoration: none;">Rampurya Ji Flour Mills (Click for Maps)</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simple Contact Form -->
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message Sent!');">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Your Phone Number" required>
+                <textarea rows="4" placeholder="Your Message or Order Details" required></textarea>
+                <button type="submit" class="btn-submit">
+                    Send Message
+                </button>
+            </form>
+        </div>
+
+        <!-- Embedded Map Frame -->
+        <div style="margin-top: 2.5rem; width: 100%; height: 320px; border-radius: 20px; overflow: hidden; border: 1px solid var(--card-border); box-shadow: var(--glossy-glow);">
+            <iframe 
+                src="https://maps.google.com/maps?q=25.8085802,79.3243917&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer with Your Name in Copyright -->
+    <footer>
+        <p>&copy; 2026 Rampurya Ji Flour Mills. Managed by Mr. Ramesh Chandra Rampurya.</p>
+        <div class="developer-credit">
+            Copyright & Managed by <strong>Rahul Rampurya</strong>. All Rights Reserved.
+        </div>
+        <div class="social-links">
+            <a href="https://wa.me/919140406019?text=Hello%20Rampurya%20Ji%20Flour%20Mills" target="_blank" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="mailto:rrampurya@gmail.com" aria-label="Email">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://www.instagram.com/i_am_rahul_rampurya_?igsh=MXQ5empidmpyeTlzcQ==" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Theme and Menu -->
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = document.getElementById('theme-icon');
+        const root = document.documentElement;
+
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = root.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                root.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fa-solid fa-sun';
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-moon';
+            }
+        });
+
+        const menuBtn = document.getElementById('menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
