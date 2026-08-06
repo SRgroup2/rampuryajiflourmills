@@ -517,9 +517,15 @@
 
                 <div class="btn-group">
                     <!-- DIRECT APK DOWNLOAD BUTTON -->
-                    <a href="https://github.com/SRgroup2/rampuryajiflourmills/raw/refs/heads/main/rampurya-ji-flour-mills.apk" download class="btn btn-primary">
-                        <i class="fa-brands fa-android" style="font-size: 1.2rem;"></i> Download App (.APK)
-                    </a>
+                    <!-- Smart Dynamic Download / Update App Button -->
+<a id="appDownloadBtn" 
+   href="https://github.com/SRgroup2/rampurya-ji-flour-mills/raw/main/rampurya-ji-flour-mills.apk" 
+   download 
+   class="btn btn-primary gold-btn-anim">
+    <i class="fa-brands fa-android" style="font-size: 1.2rem;"></i> 
+    <span id="btnText">Download App (.APK)</span>
+</a>
+    
                     <button class="btn btn-secondary" onclick="switchPage('pricing-page')"><i class="fa-solid fa-indian-rupee-sign"></i> Pisaai Rate</button>
                 </div>
             </div>
@@ -908,5 +914,31 @@ function runPisaaiCalc() {
         });
     </script>
 </body>
-                                                                                                                                                 </html>
+         <!-- Auto App Detection Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var btn = document.getElementById("appDownloadBtn");
+  var btnText = document.getElementById("btnText");
+  
+  if (btn && btnText) {
+    // User Agent check for Median / WebView
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var isApp = /median|gonative|wv/i.test(userAgent);
+
+    if (isApp) {
+      // APNE MOBILE APP KE ANDAR:
+      btnText.innerText = "Check for Updates";
+      
+      // Icon update (Sync / Refresh Icon)
+      var icon = btn.querySelector("i");
+      if(icon) {
+        icon.className = "fa-solid fa-rotate";
+      }
+
+      btn.setAttribute("title", "Tap to download latest rampurya-ji-flour-mills.apk");
+    }
+  }
+});
+</script>
+            </html>
                 
