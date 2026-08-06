@@ -662,9 +662,9 @@ function runPisaaiCalc() {
             <h2>Pisaai Rate <span class="gold-text">(Pricing Chart)</span></h2>
             <p style="color: var(--text-muted);">Solar Power aur Bijli (Grid) ke hisaab se pisaai ke charge</p>
         </div>
-        
-        <!-- Calculator 2 (Second Location) -->
-<div style="padding: 30px 15px; font-family: system-ui, -apple-system, sans-serif;">
+
+        <!-- Independent Pisaai Calculator Block -->
+<div class="pisaai-calc-box" style="padding: 25px 15px; font-family: system-ui, -apple-system, sans-serif;">
   
   <div class="calc-card-main" style="max-width: 450px; margin: 0 auto; border: 1.5px solid #D4AF37; border-radius: 16px; padding: 22px; box-sizing: border-box; box-shadow: 0 8px 24px rgba(212,175,55,0.2);">
     
@@ -674,60 +674,39 @@ function runPisaaiCalc() {
       <p class="calc-sub-text" style="margin: 0; font-size: 0.85rem;">Vajan (Kg) daalein aur turant pisaai rate dekhein</p>
     </div>
 
-    <!-- Input 1: Weight -->
+    <!-- Weight Input -->
     <div style="margin-bottom: 16px; text-align: left;">
       <label class="calc-lbl" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Gehun ka Vajan (Kg me):</label>
-      <input type="number" id="calcInputKg2" value="10" placeholder="Ex: 10" class="calc-inp" style="width: 100%; box-sizing: border-box; border: 1.5px solid #D4AF37; padding: 12px; border-radius: 8px; font-size: 1rem; outline: none;">
+      <input type="number" value="10" placeholder="Ex: 10" class="calc-inp input-weight" style="width: 100%; box-sizing: border-box; border: 1.5px solid #D4AF37; padding: 12px; border-radius: 8px; font-size: 1rem; outline: none;">
     </div>
 
-    <!-- Input 2: Dropdown -->
+    <!-- Power Source Dropdown -->
     <div style="margin-bottom: 20px; text-align: left;">
       <label class="calc-lbl" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Pisaai ka Madhyam:</label>
-      <select id="calcInputSource2" class="calc-inp" style="width: 100%; box-sizing: border-box; border: 1.5px solid #D4AF37; padding: 12px; border-radius: 8px; font-size: 0.95rem; outline: none;">
+      <select class="calc-inp input-source" style="width: 100%; box-sizing: border-box; border: 1.5px solid #D4AF37; padding: 12px; border-radius: 8px; font-size: 0.95rem; outline: none;">
         <option value="solar">☀️ Solar Power (₹1.00 / Kg)</option>
         <option value="bijli">⚡ Bijli Grid / Light (₹1.20 / Kg)</option>
       </select>
     </div>
 
     <!-- Button -->
-    <button type="button" onclick="runPisaaiCalc2()" class="gold-btn-anim" style="width: 100%; box-sizing: border-box; border: none; color: #080705; font-size: 1rem; font-weight: 800; padding: 14px; border-radius: 8px; cursor: pointer; letter-spacing: 0.5px;">
+    <button type="button" class="gold-btn-anim calc-submit-btn" style="width: 100%; box-sizing: border-box; border: none; color: #080705; font-size: 1rem; font-weight: 800; padding: 14px; border-radius: 8px; cursor: pointer; letter-spacing: 0.5px;">
       Pisaai Kharch Calculate Karein
     </button>
 
     <!-- Result Box -->
-    <div id="calcResultDisplay2" class="calc-res-card" style="display: none; margin-top: 20px; border-radius: 10px; border: 1.5px solid #D4AF37; padding: 15px; text-align: center;">
+    <div class="calc-res-card result-box" style="display: none; margin-top: 20px; border-radius: 10px; border: 1.5px solid #D4AF37; padding: 15px; text-align: center;">
       <span class="calc-sub-text" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; display: block;">KUL PISAAI KHARCH</span>
-      <h2 id="calcTotalAmount2" style="color: #2b923f; margin: 6px 0; font-size: 2.2rem; font-weight: 800;">₹0.00</h2>
+      <h2 class="res-total" style="color: #2b923f; margin: 6px 0; font-size: 2.2rem; font-weight: 800;">₹0.00</h2>
       <div class="calc-tag-card" style="padding: 8px; border-radius: 6px; margin-top: 8px;">
-        <p id="calcBreakdownText2" class="calc-lbl" style="margin: 0; font-size: 0.85rem;"></p>
+        <p class="res-breakdown calc-lbl" style="margin: 0; font-size: 0.85rem;"></p>
       </div>
     </div>
 
   </div>
 
 </div>
-
-<!-- Script Logic for Calculator 2 -->
-<script>
-function runPisaaiCalc2() {
-  var kgVal = document.getElementById('calcInputKg2').value;
-  var kg = parseFloat(kgVal);
-  var src = document.getElementById('calcInputSource2').value;
-
-  if (isNaN(kg) || kg <= 0) {
-    alert("Kripya sahi vajan (Kg) darj karein!");
-    return;
-  }
-
-  var rate = (src === 'solar') ? 1.0 : 1.2;
-  var total = kg * rate;
-
-  document.getElementById('calcTotalAmount2').innerText = '₹' + total.toFixed(2);
-  document.getElementById('calcBreakdownText2').innerText = kg + ' Kg × ₹' + rate.toFixed(2) + ' / Kg (' + (src === 'solar' ? 'SOLAR' : 'BIJLI') + ' Mode)';
-
-  document.getElementById('calcResultDisplay2').style.display = 'block';
-}
-</script>
+        
 
             <!-- SOLAR RATES CARD -->
             <div class="card">
