@@ -524,6 +524,114 @@
                 </div>
             </div>
 
+            <!-- Slow & Smooth Live Animated Golden Pisaai Calculator -->
+<div style="padding: 30px 15px; font-family: system-ui, -apple-system, sans-serif;">
+  
+  <div class="calc-card-main" style="max-width: 450px; margin: 0 auto; border: 1.5px solid #D4AF37; border-radius: 16px; padding: 22px; box-sizing: border-box; box-shadow: 0 8px 24px rgba(212,175,55,0.2);">
+    
+    <!-- Title with Slow Animated Gold Text -->
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h3 class="gold-text-anim" style="margin: 0 0 6px 0; font-size: 1.6rem; font-weight: 800;">🌾 Atta Pisaai Calculator</h3>
+      <p class="calc-sub-text" style="margin: 0; font-size: 0.85rem;">Vajan (Kg) daalein aur turant pisaai rate dekhein</p>
+    </div>
+
+    <!-- Input 1: Weight -->
+    <div style="margin-bottom: 16px; text-align: left;">
+      <label class="calc-lbl" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Gehun ka Vajan (Kg me):</label>
+      <input type="number" id="calcInputKg" value="10" placeholder="Ex: 10" class="calc-inp" style="width: 100%; box-sizing: border-box; border: 1.5px solid #D4AF37; padding: 12px; border-radius: 8px; font-size: 1rem; outline: none;">
+    </div>
+
+    <!-- Input 2: Dropdown -->
+    <div style="margin-bottom: 20px; text-align: left;">
+      <label class="calc-lbl" style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Pisaai ka Madhyam:</label>
+      <select id="calcInputSource" class="calc-inp" style="width: 100%; box-sizing: border-box; border: 1.5px solid #D4AF37; padding: 12px; border-radius: 8px; font-size: 0.95rem; outline: none;">
+        <option value="solar">☀️ Solar Power (₹1.00 / Kg)</option>
+        <option value="bijli">⚡ Bijli Grid / Light (₹1.20 / Kg)</option>
+      </select>
+    </div>
+
+    <!-- Button -->
+    <button type="button" onclick="runPisaaiCalc()" class="gold-btn-anim" style="width: 100%; box-sizing: border-box; border: none; color: #080705; font-size: 1rem; font-weight: 800; padding: 14px; border-radius: 8px; cursor: pointer; letter-spacing: 0.5px;">
+      Pisaai Kharch Calculate Karein
+    </button>
+
+    <!-- Result Box -->
+    <div id="calcResultDisplay" class="calc-res-card" style="display: none; margin-top: 20px; border-radius: 10px; border: 1.5px solid #D4AF37; padding: 15px; text-align: center;">
+      <span class="calc-sub-text" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; display: block;">KUL PISAAI KHARCH</span>
+      <h2 id="calcTotalAmount" style="color: #2b923f; margin: 6px 0; font-size: 2.2rem; font-weight: 800;">₹0.00</h2>
+      <div class="calc-tag-card" style="padding: 8px; border-radius: 6px; margin-top: 8px;">
+        <p id="calcBreakdownText" class="calc-lbl" style="margin: 0; font-size: 0.85rem;"></p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Slow & Smooth Animation CSS -->
+<style>
+  @keyframes goldGlowWave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Title Animation (Slowed down to 10 seconds) */
+  .gold-text-anim {
+    background: linear-gradient(270deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldGlowWave 10s linear infinite;
+  }
+
+  /* Button Animation (Slowed down to 8 seconds) */
+  .gold-btn-anim {
+    background: linear-gradient(270deg, #BF953F, #FCF6BA, #B38728, #FCF6BA, #AA771C);
+    background-size: 300% 300%;
+    animation: goldGlowWave 8s linear infinite;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  }
+
+  /* Dark Theme Default */
+  .calc-card-main { background-color: #120F0B; }
+  .calc-sub-text { color: #A39E93; }
+  .calc-lbl { color: #FCF6BA; }
+  .calc-inp { background-color: #1B1712; color: #FFFFFF; }
+  .calc-res-card { background-color: #1B1712; }
+  .calc-tag-card { background-color: #262019; }
+
+  /* Light Theme Support */
+  body.light-mode .calc-card-main, html[data-theme="light"] .calc-card-main, [data-bs-theme="light"] .calc-card-main { background-color: #FCFBF8 !important; }
+  body.light-mode .calc-sub-text, html[data-theme="light"] .calc-sub-text, [data-bs-theme="light"] .calc-sub-text { color: #555555 !important; }
+  body.light-mode .calc-lbl, html[data-theme="light"] .calc-lbl, [data-bs-theme="light"] .calc-lbl { color: #18140E !important; }
+  body.light-mode .calc-inp, html[data-theme="light"] .calc-inp, [data-bs-theme="light"] .calc-inp { background-color: #FFFFFF !important; color: #18140E !important; }
+  body.light-mode .calc-res-card, html[data-theme="light"] .calc-res-card, [data-bs-theme="light"] .calc-res-card { background-color: #F4F1EA !important; }
+  body.light-mode .calc-tag-card, html[data-theme="light"] .calc-tag-card, [data-bs-theme="light"] .calc-tag-card { background-color: #E8E3D8 !important; }
+</style>
+
+<!-- Script Logic -->
+<script>
+function runPisaaiCalc() {
+  var kgVal = document.getElementById('calcInputKg').value;
+  var kg = parseFloat(kgVal);
+  var src = document.getElementById('calcInputSource').value;
+
+  if (isNaN(kg) || kg <= 0) {
+    alert("Kripya sahi vajan (Kg) darj karein!");
+    return;
+  }
+
+  var rate = (src === 'solar') ? 1.0 : 1.2;
+  var total = kg * rate;
+
+  document.getElementById('calcTotalAmount').innerText = '₹' + total.toFixed(2);
+  document.getElementById('calcBreakdownText').innerText = kg + ' Kg × ₹' + rate.toFixed(2) + ' / Kg (' + (src === 'solar' ? 'SOLAR' : 'BIJLI') + ' Mode)';
+
+  document.getElementById('calcResultDisplay').style.display = 'block';
+}
+</script>
+
             <div class="hero-img-card" style="width: 320px; height: 360px; background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-gloss);">
                 <i class="fa-solid fa-wheat-awn" style="font-size: 6rem; color: var(--accent-gold); margin-bottom: 1rem; filter: drop-shadow(0 0 15px var(--gold-glow));"></i>
                 <h3 class="gold-text">Shuddh Desi Atta</h3>
