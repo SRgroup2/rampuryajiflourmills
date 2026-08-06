@@ -707,47 +707,6 @@ function runPisaaiCalc() {
 
 </div>
 
-<!-- Slow & Smooth Animation CSS -->
-<style>
-  @keyframes goldGlowWave {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Title Animation (Slowed down to 10 seconds) */
-  .gold-text-anim {
-    background: linear-gradient(270deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: goldGlowWave 10s linear infinite;
-  }
-
-  /* Button Animation (Slowed down to 8 seconds) */
-  .gold-btn-anim {
-    background: linear-gradient(270deg, #BF953F, #FCF6BA, #B38728, #FCF6BA, #AA771C);
-    background-size: 300% 300%;
-    animation: goldGlowWave 8s linear infinite;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-  }
-
-  /* Dark Theme Default */
-  .calc-card-main { background-color: #120F0B; }
-  .calc-sub-text { color: #A39E93; }
-  .calc-lbl { color: #FCF6BA; }
-  .calc-inp { background-color: #1B1712; color: #FFFFFF; }
-  .calc-res-card { background-color: #1B1712; }
-  .calc-tag-card { background-color: #262019; }
-
-  /* Light Theme Support */
-  body.light-mode .calc-card-main, html[data-theme="light"] .calc-card-main, [data-bs-theme="light"] .calc-card-main { background-color: #FCFBF8 !important; }
-  body.light-mode .calc-sub-text, html[data-theme="light"] .calc-sub-text, [data-bs-theme="light"] .calc-sub-text { color: #555555 !important; }
-  body.light-mode .calc-lbl, html[data-theme="light"] .calc-lbl, [data-bs-theme="light"] .calc-lbl { color: #18140E !important; }
-  body.light-mode .calc-inp, html[data-theme="light"] .calc-inp, [data-bs-theme="light"] .calc-inp { background-color: #FFFFFF !important; color: #18140E !important; }
-  body.light-mode .calc-res-card, html[data-theme="light"] .calc-res-card, [data-bs-theme="light"] .calc-res-card { background-color: #F4F1EA !important; }
-  body.light-mode .calc-tag-card, html[data-theme="light"] .calc-tag-card, [data-bs-theme="light"] .calc-tag-card { background-color: #E8E3D8 !important; }
-</style>
 
         <div class="grid" style="max-width: 900px; margin: 2rem auto 0;">
             <!-- SOLAR RATES CARD -->
