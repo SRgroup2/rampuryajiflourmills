@@ -749,29 +749,6 @@ function runPisaaiCalc() {
   body.light-mode .calc-tag-card, html[data-theme="light"] .calc-tag-card, [data-bs-theme="light"] .calc-tag-card { background-color: #E8E3D8 !important; }
 </style>
 
-<!-- Script Logic -->
-<script>
-function runPisaaiCalc() {
-  var kgVal = document.getElementById('calcInputKg').value;
-  var kg = parseFloat(kgVal);
-  var src = document.getElementById('calcInputSource').value;
-
-  if (isNaN(kg) || kg <= 0) {
-    alert("Kripya sahi vajan (Kg) darj karein!");
-    return;
-  }
-
-  var rate = (src === 'solar') ? 1.0 : 1.2;
-  var total = kg * rate;
-
-  document.getElementById('calcTotalAmount').innerText = '₹' + total.toFixed(2);
-  document.getElementById('calcBreakdownText').innerText = kg + ' Kg × ₹' + rate.toFixed(2) + ' / Kg (' + (src === 'solar' ? 'SOLAR' : 'BIJLI') + ' Mode)';
-
-  document.getElementById('calcResultDisplay').style.display = 'block';
-}
-</script>
-        
-
         <div class="grid" style="max-width: 900px; margin: 2rem auto 0;">
             <!-- SOLAR RATES CARD -->
             <div class="card">
